@@ -19,18 +19,23 @@ export default function Door(props: IDoorProps)
         onChange(door.openUp());
     }
 
+    const renderDoor = () =>
+    {
+        return (
+        <>
+            <div className={styles.number}>{door.number}</div>
+            <div className={styles.knob} onClick={handleOpen}/>
+        </>
+        );
+    }
+
     const selected = door.selected && !door.open;
 
     return (
             <div className={styles.outerRegion}>
                 <div className={`${styles.frame} ${door.open ? styles.open : styles.closed} ${selected && styles.selected}`} 
                 onClick={handleSelection}>
-                    {!door.open &&
-                    <>
-                        <div className={styles.number}>{door.number}</div>
-                        <div className={styles.knob} onClick={handleOpen}/>
-                    </>
-                    }   
+                    {!door.open && renderDoor()}   
                 </div>
                 <div className={styles.floor}/>
             </div>
