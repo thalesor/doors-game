@@ -40,7 +40,7 @@ export default function Room(props)
     }
 
     return (
-        <div style={{display: 'flex', gap: 30, flexWrap: 'wrap', width: '100%'}}>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '30px 0px', gap: 50, flexWrap: 'wrap'}}>
             {renderDoors()}
         </div>
     )
