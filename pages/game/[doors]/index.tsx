@@ -3,6 +3,7 @@ import Room from "../../../components/Room";
 import { useRouter } from "../../../node_modules/next/router";
 import Chances from "../../../components/Chances";
 import useChances from "../../../src/hooks/useChances";
+import useGame from "../../../src/hooks/useGame";
 import Logo from "../../../components/Logo";
 
 export default function game()
@@ -10,7 +11,8 @@ export default function game()
     const router = useRouter();
     const [doorsAmount, setDoorsAmount] = useState(0);
     const { setChances } = useChances();
-    
+    const { giftFound } = useGame();
+
     useEffect(() => {
       const doors = +router?.query.doors;
       setDoorsAmount(doors); 
@@ -19,6 +21,11 @@ export default function game()
     useEffect(() => {
        setChances(doorsAmount-1);
     }, [doorsAmount])
+
+    useEffect(() => {
+      if(giftFound)
+      alert('achou o presente');
+   }, [giftFound])
     
     return (
       <>
