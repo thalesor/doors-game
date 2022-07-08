@@ -1,6 +1,7 @@
 import styles from "../styles/Door.module.css";
 import DoorModel from "../models/door";
 import Gift from "../components/Gift";
+import useChances from "../src/hooks/useChances";
 
 interface IDoorProps {
     value: DoorModel;
@@ -10,7 +11,7 @@ interface IDoorProps {
 export default function Door(props: IDoorProps)
 {
     const { value: door, onChange } = props;
-
+    const { chances, setChances } = useChances();
     const handleSelection = e => {
         onChange(door.toggleSelection());
     } 
@@ -18,6 +19,7 @@ export default function Door(props: IDoorProps)
     const handleOpen = e => {
         e.stopPropagation();
         onChange(door.openUp());
+        setChances(chances-1);
     }
 
     const renderDoor = () =>

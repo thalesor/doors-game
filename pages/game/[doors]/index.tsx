@@ -2,23 +2,29 @@ import { useEffect, useState } from "react";
 import Room from "../../../components/Room";
 import { useRouter } from "../../../node_modules/next/router";
 import Chances from "../../../components/Chances";
+import useChances from "../../../src/hooks/useChances";
 import Logo from "../../../components/Logo";
 
 export default function game()
 {
     const router = useRouter();
     const [doorsAmount, setDoorsAmount] = useState(0);
-
+    const { setChances } = useChances();
+    
     useEffect(() => {
       const doors = +router?.query.doors;
       setDoorsAmount(doors); 
     }, [router?.query])
 
+    useEffect(() => {
+       setChances(doorsAmount-1);
+    }, [doorsAmount])
+    
     return (
       <>
         <nav style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0px 30px'}}>
          <Logo/>
-         <Chances attempts={doorsAmount-1}/>
+         <Chances/>
         </nav>
         <div style={{width: '100%', minHeight: '78vh', display: 'flex', justifyContent: 'center'}}>
           {doorsAmount > 0 && <Room doorsQuantity={doorsAmount}/>}
