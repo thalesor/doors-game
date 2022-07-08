@@ -5,13 +5,13 @@ import Door from '../components/Door';
 export default function Room(props)
 {
     const { doorsQuantity } = props;
-    const createDoors = (quantity: number, selectedDoor: number): DoorModel[] =>
+    const createDoors = (quantity: number, doorWithGift: number): DoorModel[] =>
     {
         //usar array.from pois essa função é um tipo de for com mapeamento, o elemento
         //não importa pois todos são undefined, o que interessa mesmo é o índice
         return Array.from({ length: doorsQuantity}, (_, i) => {
             i+=1;
-            const hasGift = i === selectedDoor; 
+            const hasGift = i === doorWithGift; 
             return new DoorModel(i, hasGift, false, false);
         });
     }
@@ -36,7 +36,7 @@ export default function Room(props)
 
     const renderDoors = () =>
     {
-        return doorsList?.map(door => <Door value={door} onChange={newDoor => {setDoorsList(updateDoors(doorsList, newDoor))}}/>)
+        return doorsList?.map((door, i) => <Door key={i} value={door} onChange={newDoor => {setDoorsList(updateDoors(doorsList, newDoor))}}/>)
     }
 
     return (
