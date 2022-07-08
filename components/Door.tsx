@@ -27,31 +27,48 @@ export default function Door(props: IDoorProps)
         setChances(chances-1);
     }
 
-    const renderDoor = () =>
-    {
-        return (
-        <>
-            <div className={styles.number}>{door.number}</div>
-            <div className={styles.knob} onClick={!giftFound ? handleOpen : () => {}}/>
-        </>
-        );
-    }
-
     const selected = door.selected && !door.open;
-
+    /*
     return (
             <div className={styles.outerRegion}>
                 <div className={`${styles.frame} ${door.open ? styles.open : styles.closed} ${selected && styles.selected}`} 
                 onClick={!giftFound ? handleSelection : () => {}}>
                     {!door.open ? renderDoor() : door.hasGift && <>
                     <Gift/>
-                    <Confetti
-                        width={120}
-                        height={300}
-                        />
+                    
                     </>}   
                 </div>
                 <div className={styles.floor}/>
             </div>
     )
+    */
+   return (
+    <div className={`${styles.door} ${door.open ? styles.open : styles.closed} ${selected && styles.selected}`} 
+    onClick={!giftFound ? handleSelection : () => {}}>
+        <div className={styles.doorFront}>
+            <div className={styles.knob} onClick={!giftFound ? handleOpen : () => {}}/>
+        </div>
+        <div className={`${styles.doorBack} ${door.hasGift && styles.specialRoom}`}>
+            {door.hasGift 
+            ? 
+            <>
+                <Gift width={500} height={1000} top={10} left={10}/>
+                {giftFound && 
+                <Confetti
+                    width={120}
+                    height={300}
+                />
+                }
+                
+            </>
+            :
+            <>
+                <div className={styles.rack}></div>
+                <div className={styles.hat}></div>
+                <div className={styles.jacket}></div>
+            </>
+            }
+        </div>
+    </div>
+   )
 }
