@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/index.js", "components/Gift.jsx", "src/contexts/ChancesContext.js"  ],
+, "pages/index.js", "components/Gift.tsx", "src/contexts/ChancesContext.js"  ],
   "exclude": [
     "node_modules"
   ]

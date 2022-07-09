@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useGame from "../src/hooks/useGame";
 import DoorModel from "../models/door";
 import Door from '../components/Door';
 
 export default function Room(props)
 {
     const { doorsQuantity } = props;
+    const { setFinishedLoading } = useGame();
+
     const createDoors = (quantity: number, doorWithGift: number): DoorModel[] =>
     {
         //usar array.from pois essa função é um tipo de for com mapeamento, o elemento
@@ -23,6 +26,11 @@ export default function Room(props)
       }
 
     const [doorsList, setDoorsList] = useState(createDoors(10, getRandomInt(1, doorsQuantity)));
+    
+    useEffect(() => {
+        if(doorsList)
+        setFinishedLoading(true);
+    }, [doorsList]);
 
     const updateDoors = (doors: DoorModel[], toUpdate: DoorModel): DoorModel[] =>
     {

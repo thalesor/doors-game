@@ -14,7 +14,7 @@ export default function Door(props: IDoorProps)
 {
     const { value: door, onChange } = props;
     const { chances, setChances } = useChances();
-    const { giftFound, setGiftFound } = useGame();
+    const { giftFound, setGiftFound, succesMessage } = useGame();
     const handleSelection = e => {
         onChange(door.toggleSelection());
     } 
@@ -23,25 +23,16 @@ export default function Door(props: IDoorProps)
         e.stopPropagation();
         onChange(door.openUp());
         if(door.hasGift)
-        setGiftFound(true);
+        {
+            setGiftFound(true);
+            setChances(0);
+            return;
+        }
         setChances(chances-1);
     }
 
     const selected = door.selected && !door.open;
-    /*
-    return (
-            <div className={styles.outerRegion}>
-                <div className={`${styles.frame} ${door.open ? styles.open : styles.closed} ${selected && styles.selected}`} 
-                onClick={!giftFound ? handleSelection : () => {}}>
-                    {!door.open ? renderDoor() : door.hasGift && <>
-                    <Gift/>
-                    
-                    </>}   
-                </div>
-                <div className={styles.floor}/>
-            </div>
-    )
-    */
+
    return (
     <div className={`${styles.door} ${door.open ? styles.open : styles.closed} ${selected && styles.selected}`} 
     onClick={!giftFound ? handleSelection : () => {}}>
@@ -52,7 +43,7 @@ export default function Door(props: IDoorProps)
             {door.hasGift 
             ? 
             <>
-                <Gift width={500} height={1000} top={10} left={10}/>
+                <Gift width={500} height={1000} top={10} left={10} clickFn={()=> succesMessage()}/>
                 {giftFound && 
                 <Confetti
                     width={120}

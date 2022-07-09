@@ -5,6 +5,6 @@ export default function Chances()
 {
     const { chances } = useChances();
     return (
-        <h1 className={styles.Chances}>Tentativas restantes: {chances}</h1>
+        <h1 className={styles.Chances}>Tentativas restantes: {chances >= 1 ? chances : <span style={{color: 'red'}}> x </span>}</h1>
     )
 }
