@@ -7,9 +7,8 @@ export const GameContext = createContext(null);
 
 
 export function GameProvider({ children }) {
-  const [giftFound, setGiftFound] = useState(false);
-  const [finishedLoading, setFinishedLoading] = useState(false);
-
+  const [gameIsReady, setGameIsReady] = useState(false);
+  const [gameIsRunning, setGameIsRunning] = useState(false);
   function loadGame()
   {
     Router.reload(window.location.pathname)
@@ -60,7 +59,7 @@ export function GameProvider({ children }) {
   }
 
   return (
-    <GameContext.Provider value={{ finishedLoading, setFinishedLoading, giftFound, setGiftFound, succesMessage, failMessage }}>
+    <GameContext.Provider value={{ gameIsReady, setGameIsReady, succesMessage, failMessage, gameIsRunning, setGameIsRunning }}>
       {children}
     </GameContext.Provider>
   );

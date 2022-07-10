@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import useGame from "../src/hooks/useGame";
 import DoorModel from "../models/door";
 import Door from '../components/Door';
+import { getRandomIntFromMinAndMax } from "../utils/functions";
 
-export default function Room(props)
+export default function Room({doorsQuantity})
 {
-    const { doorsQuantity } = props;
-    const { setFinishedLoading } = useGame();
+    const { setGameIsReady } = useGame();
 
-    const createDoors = (quantity: number, doorWithGift: number): DoorModel[] =>
+    const createDoors = (doorWithGift: number): DoorModel[] =>
     {
         //usar array.from pois essa função é um tipo de for com mapeamento, o elemento
         //não importa pois todos são undefined, o que interessa mesmo é o índice
@@ -19,17 +19,11 @@ export default function Room(props)
         });
     }
 
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min;
-      }
-
-    const [doorsList, setDoorsList] = useState(createDoors(10, getRandomInt(1, doorsQuantity)));
+    const [doorsList, setDoorsList] = useState(createDoors(getRandomIntFromMinAndMax(1, doorsQuantity)));
     
     useEffect(() => {
         if(doorsList)
-        setFinishedLoading(true);
+        setGameIsReady(true);
     }, [doorsList]);
 
     const updateDoors = (doors: DoorModel[], toUpdate: DoorModel): DoorModel[] =>

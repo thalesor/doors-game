@@ -11,7 +11,7 @@ export default function game()
     const router = useRouter();
     const [doorsAmount, setDoorsAmount] = useState(0);
     const { chances, setChances } = useChances();
-    const { foundGift, failMessage, finishedLoading } = useGame();
+    const { failMessage, gameIsReady, setGameIsRunning } = useGame();
 
     useEffect(() => {
       const doors = +router?.query.doors;
@@ -21,14 +21,18 @@ export default function game()
     useEffect(() => {
        setChances(doorsAmount-1);
     }, [doorsAmount])
-
+    
     useEffect(() => {
-      if(chances <= 0 && finishedLoading)
+      if(gameIsReady && chances <= 0)
       {
-        if(!foundGift)
-          failMessage(); 
+        failMessage(); 
       }
    }, [chances])
+
+   useEffect(() => {
+    if(gameIsReady)
+      setGameIsRunning(true);
+ }, [gameIsReady])
     
     return (
       <>
