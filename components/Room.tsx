@@ -6,7 +6,7 @@ import { getRandomIntFromMinAndMax } from "../utils/functions";
 
 export default function Room({doorsQuantity})
 {
-    const { setGameIsReady } = useGame();
+    const { setGameIsReady, prizedDoor } = useGame();
 
     const createDoors = (doorWithGift: number): DoorModel[] =>
     {
@@ -19,7 +19,7 @@ export default function Room({doorsQuantity})
         });
     }
 
-    const [doorsList, setDoorsList] = useState(createDoors(getRandomIntFromMinAndMax(1, doorsQuantity)));
+    const [doorsList, setDoorsList] = useState(createDoors(prizedDoor > 0 ? prizedDoor : getRandomIntFromMinAndMax(1, doorsQuantity)));
     
     useEffect(() => {
         if(doorsList)

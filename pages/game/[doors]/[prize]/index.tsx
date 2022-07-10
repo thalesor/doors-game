@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
-import Room from "../../../components/Room";
+import Room from "../../../../components/Room";
 import { useRouter } from "next/router";
-import Chances from "../../../components/Chances";
-import useChances from "../../../src/hooks/useChances";
-import useGame from "../../../src/hooks/useGame";
-import Logo from "../../../components/Logo";
+import Chances from "../../../../components/Chances";
+import useChances from "../../../../src/hooks/useChances";
+import useGame from "../../../../src/hooks/useGame";
+import Logo from "../../../../components/Logo";
 
 export default function game()
 {
     const router = useRouter();
     const [doorsAmount, setDoorsAmount] = useState(0);
     const { chances, setChances } = useChances();
-    const { failMessage, gameIsReady, setGameIsRunning } = useGame();
+    const { failMessage, gameIsReady, setGameIsRunning, setPrizedDoor } = useGame();
 
     useEffect(() => {
       const doors = +router?.query.doors;
+      const prized = +router?.query.prize;
       setDoorsAmount(doors); 
+      setPrizedDoor(prized);
     }, [router?.query])
 
     useEffect(() => {

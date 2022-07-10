@@ -9,6 +9,8 @@ export const GameContext = createContext(null);
 export function GameProvider({ children }) {
   const [gameIsReady, setGameIsReady] = useState(false);
   const [gameIsRunning, setGameIsRunning] = useState(false);
+  const [prizedDoor, setPrizedDoor] = useState(null);
+
   const router = useRouter();
   function loadGame()
   {
@@ -65,7 +67,7 @@ export function GameProvider({ children }) {
   }
 
   return (
-    <GameContext.Provider value={{ gameIsReady, setGameIsReady, succesMessage, failMessage, gameIsRunning, setGameIsRunning, sendToPage }}>
+    <GameContext.Provider value={{ gameIsReady, setGameIsReady, succesMessage, failMessage, gameIsRunning, setGameIsRunning, sendToPage, prizedDoor, setPrizedDoor }}>
       {children}
     </GameContext.Provider>
   );

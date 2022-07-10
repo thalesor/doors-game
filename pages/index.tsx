@@ -6,14 +6,14 @@ import useGame from '../src/hooks/useGame';
 export default function Home() {
 
   const [currentDoorsAmount, setCurrentDoorsAmount] = useState(0);
-  const { sendToPage, setGameIsReady } = useGame();
+  const { sendToPage, setGameIsReady, setPrizedDoor, prizedDoor } = useGame();
 
   setGameIsReady(false);
   
   const handleRouting = (e) =>
   {
     e.preventDefault();
-    sendToPage(`/game/${currentDoorsAmount}`);
+    sendToPage(`/game/${currentDoorsAmount}/${prizedDoor || 'random'}`);
   }
 
   return (
@@ -29,7 +29,7 @@ export default function Home() {
           </div>
           <div className={style.inputGroup}>
             <label>Porta premiada:</label>
-            <input type="number" min={1} max={currentDoorsAmount}/>
+            <input type="number" placeholder='a máquina decide' min={1} max={currentDoorsAmount} onChange={(e) => setPrizedDoor(+e.target.value)}/>
           </div>
           <input type="submit" value={'Jogar'} className={style.GameButton}/>
         </form>
