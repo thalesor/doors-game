@@ -6,7 +6,7 @@ import useChances from "../../../../src/hooks/useChances";
 import useGame from "../../../../src/hooks/useGame";
 import Logo from "../../../../components/Logo";
 
-export default function game()
+export default function Game()
 {
     const router = useRouter();
     const [doorsAmount, setDoorsAmount] = useState(0);
