@@ -39,6 +39,7 @@ export default function Door(props: IDoorProps)
             <div className={`${styles.door} ${doorObject.open ? styles.open : styles.closed} ${selected && styles.selected}`} 
             onClick={gameIsRunning ? handleSelection : () => {}}>
             <div className={styles.doorFront}>
+                <div className={styles.numberContainer}>{doorObject.number}</div>
                 <div className={styles.knob} onClick={gameIsRunning ? handleOpen : () => {}}/>
             </div>
             <div className={`${styles.doorBack} ${doorObject.hasGift && styles.specialRoom}`}>

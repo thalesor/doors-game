@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import Router from "next/router";
+import { useRouter } from "next/router";
 
 export const GameContext = createContext(null);
 
@@ -9,12 +9,18 @@ export const GameContext = createContext(null);
 export function GameProvider({ children }) {
   const [gameIsReady, setGameIsReady] = useState(false);
   const [gameIsRunning, setGameIsRunning] = useState(false);
+  const router = useRouter();
   function loadGame()
   {
-    Router.reload(window.location.pathname)
+    router.reload();
   }
   
   const MySwal = withReactContent(Swal);
+
+  function sendToPage(page)
+  {
+    router.replace(page);
+  }
 
   function succesMessage()
   {
@@ -32,7 +38,7 @@ export function GameProvider({ children }) {
       }
       else if(result.isDismissed)
       {
-        alert('sabe sim')
+        sendToPage('/');
       }
     });
   }
@@ -53,13 +59,13 @@ export function GameProvider({ children }) {
       }
       else if(result.isDismissed)
       {
-        alert('sabe sim')
+        sendToPage('/')
       }
     });
   }
 
   return (
-    <GameContext.Provider value={{ gameIsReady, setGameIsReady, succesMessage, failMessage, gameIsRunning, setGameIsRunning }}>
+    <GameContext.Provider value={{ gameIsReady, setGameIsReady, succesMessage, failMessage, gameIsRunning, setGameIsRunning, sendToPage }}>
       {children}
     </GameContext.Provider>
   );

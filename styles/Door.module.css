@@ -49,6 +49,33 @@
     z-index:1;
     transition: .5s;
   }
+
+  .numberContainer
+  {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    left: 0;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 22px;
+    font-family: 'roboto';
+  }
+
+  .number
+  {
+    position: absolute;
+    top: 37px;
+    left: 48%;
+    color: #fff;
+    font-family: 'roboto';
+    font-size: 22px;
+    align-self: center;
+    justify-self: center;
+  }
   
   .doorFront:before, .doorFront:after {
     content:"";
