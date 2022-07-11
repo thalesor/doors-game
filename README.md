@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Esse é um projeto criado com [Next.js](https://nextjs.org/).
+A idéia é encontrar o presente escondido em uma das portas antes que as chances se esgotem e inicialmente há
+um menu para configurar quantas portas serão utilizadas e se deseja escolher uma porta premiada ou a máquina deve escolher uma porta para ser premiada. 
+O jogo acaba quando e encontra o presente ou as chances se esgotam.
+Para vencer é preciso não somente encontrar o presente mas também clicar nele.
+Quando o jogo acaba é possível reiniciar o mesmo jogo ou voltar ao menu para mudar as configurações, eu espero
+que se divirtam :D foi feito com .
 
-## Getting Started
+## Para quem quiser só experimentar o jogo e não quiser saber como foi feito:
+Basta acessar o seguinte link (https://doorsgame.vercel.app/)
 
-First, run the development server:
+## Como iniciar o jogo:
+
+Para iniciar o jogo, deve-se rodar o seguinte comando:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Após [http://localhost:3000](http://localhost:3000) no seu browser favorito.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Demonstração das telas do jogo:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Aqui vai a demonstração
