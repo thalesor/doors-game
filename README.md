@@ -21,6 +21,6 @@ yarn dev
 
 Após [http://localhost:3000](http://localhost:3000) no seu browser favorito.
 
-## Demonstração das telas do jogo:
+## Demonstração das telas do jogo (a imagem é um gif, então háperda de qualidade):
 
 <img align="right" alt="GIF" src="https://github.com/thalesor/doors-game/blob/main/application.gif?raw=true" width="100%" height="600" />
