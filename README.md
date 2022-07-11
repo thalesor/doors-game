@@ -23,4 +23,4 @@ Após [http://localhost:3000](http://localhost:3000) no seu browser favorito.
 
 ## Demonstração das telas do jogo:
 
-Aqui vai a demonstração
+<img align="right" alt="GIF" src="https://github.com/thalesor/doors-game/blob/main/application.gif?raw=true" width="100%" height="600" />
