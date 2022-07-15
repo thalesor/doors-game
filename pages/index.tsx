@@ -2,25 +2,27 @@ import style from '../styles/Menu.module.css';
 import Logo from '../components/Logo';
 import { useState } from 'react';
 import useGame from '../src/hooks/useGame';
+import { useRouter } from 'next/router';
 
 export default function Home() {
 
   const [currentDoorsAmount, setCurrentDoorsAmount] = useState(0);
-  const { sendToPage, setGameIsReady, setPrizedDoor, prizedDoor } = useGame();
-
-  setGameIsReady(false);
+  const { setPrizedDoor, prizedDoor, resetGameConfig } = useGame();
+  const router = useRouter();
   
   const handleRouting = (e) =>
   {
     e.preventDefault();
-    sendToPage(`/game/${currentDoorsAmount}/${prizedDoor || 'random'}`);
+    resetGameConfig();
+    router.replace(`/game/${currentDoorsAmount}/${prizedDoor || 'random'}`);
   }
 
   return (
     <div style={{display: 'flex', flexDirection: 'column'}}>
       <nav style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', padding: '0px 30px'}}>
         <Logo/>
-      </nav>
+      </nav> 
+      <br/>
       <div style={{display: 'flex', width: '100%', justifyContent: 'center'}}>
         <form onSubmit={(e)=> handleRouting(e)} className={style.form}>
           <div className={style.inputGroup}>

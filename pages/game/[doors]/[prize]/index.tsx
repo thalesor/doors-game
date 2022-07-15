@@ -5,13 +5,15 @@ import Chances from "../../../../components/Chances";
 import useChances from "../../../../src/hooks/useChances";
 import useGame from "../../../../src/hooks/useGame";
 import Logo from "../../../../components/Logo";
+import useMessage from "../../../../src/hooks/useMessage";
 
 export default function Game()
 {
     const router = useRouter();
     const [doorsAmount, setDoorsAmount] = useState(0);
     const { chances, setChances } = useChances();
-    const { failMessage, gameIsReady, setGameIsRunning, setPrizedDoor } = useGame();
+    const { gameIsReady, setGameIsRunning, setPrizedDoor } = useGame();
+    const { displayMessage } = useMessage();
 
     useEffect(() => {
       const doors = +router?.query.doors;
@@ -27,7 +29,7 @@ export default function Game()
     useEffect(() => {
       if(gameIsReady && chances <= 0)
       {
-        failMessage(); 
+        displayMessage('failure'); 
       }
    }, [chances])
 
@@ -43,7 +45,11 @@ export default function Game()
          <Chances/>
         </nav>
         <div style={{width: '100%', minHeight: '78vh', display: 'flex', justifyContent: 'center'}}>
-          {doorsAmount > 0 && <Room doorsQuantity={doorsAmount}/>}
+          {doorsAmount > 0 ? <Room doorsQuantity={doorsAmount}/> 
+          : 
+          <div style={{flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <h1>Carregando...</h1>
+          </div>}
         </div>
         </>
       )

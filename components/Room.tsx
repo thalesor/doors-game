@@ -38,7 +38,7 @@ export default function Room({doorsQuantity})
 
     const renderDoors = () =>
     {
-        return doorsList?.map((door, i) => <Door key={i} value={door} onChange={newDoor => {setDoorsList(updateDoors(doorsList, newDoor))}}/>)
+        return doorsList.map((door, i) => <Door key={i} value={door} onChange={newDoor => {setDoorsList(updateDoors(doorsList, newDoor))}}/>)
     }
 
     return (

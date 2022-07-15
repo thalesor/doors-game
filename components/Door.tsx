@@ -4,6 +4,7 @@ import Gift from "../components/Gift";
 import useChances from "../src/hooks/useChances";
 import Confetti from "react-confetti";
 import useGame from "../src/hooks/useGame";
+import useMessage from "../src/hooks/useMessage";
 
 interface IDoorProps {
     value: DoorModel;
@@ -14,7 +15,8 @@ export default function Door(props: IDoorProps)
 {
     const { value: door, onChange } = props;
     const { chances, setChances } = useChances();
-    const { gameIsRunning, setGameIsRunning, succesMessage } = useGame();
+    const { gameIsRunning, setGameIsRunning } = useGame();
+    const { displayMessage } = useMessage();
 
     const handleSelection = e => {
         onChange(door.toggleSelection());
@@ -46,7 +48,7 @@ export default function Door(props: IDoorProps)
                 {doorObject.hasGift 
                 ? 
                 <>
-                    <Gift width={500} height={1000} top={10} left={10} clickFn={()=> succesMessage()}/>
+                    <Gift width={500} height={1000} top={10} left={10} clickFn={()=> displayMessage('success')}/>
                     {!gameIsRunning && 
                     <Confetti
                         width={120}
