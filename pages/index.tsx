@@ -34,14 +34,14 @@ export default function Home() {
       <div style={{display: 'flex', width: '100%', justifyContent: 'center'}}>
         <form onSubmit={(e)=> handleRouting(e)} className={style.form}>
           <div className={style.inputGroup}>
-            <label>Quantas portas?</label>
+            <label>How many doors?</label>
             <input type="number" min={2} max={1000} value={currentDoorsAmount} onChange={(e) => setCurrentDoorsAmount(+e.target.value)}/>
           </div>
           <div className={style.inputGroup}>
-            <label>Porta premiada:</label>
-            <input type="number" placeholder='a máquina decide' value={prizedDoor} min={1} max={currentDoorsAmount} onChange={(e) => handleChangePrizedDoor(e)}/>
+            <label>Prized door:</label>
+            <input type="number" placeholder='Let the machine decide for me' value={prizedDoor} min={1} max={currentDoorsAmount} onChange={(e) => handleChangePrizedDoor(e)}/>
           </div>
-          <input type="submit" value={'Jogar'} className={style.GameButton}/>
+          <input type="submit" value={'Play'} className={style.GameButton}/>
         </form>
       </div>
     </div>

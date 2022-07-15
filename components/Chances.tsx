@@ -8,6 +8,6 @@ export default function Chances()
     const { gameIsReady } = useGame();
     
     return (
-        gameIsReady && <h1 className={styles.Chances}>Tentativas restantes: {chances >= 1 ? chances : <span style={{color: 'red'}}> x </span>}</h1>
+        gameIsReady && <h1 className={styles.Chances}>Remaining attempts: {chances >= 1 ? chances : <span style={{color: 'red'}}> x </span>}</h1>
     )
 }
