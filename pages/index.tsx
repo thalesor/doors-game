@@ -1,6 +1,6 @@
 import style from '../styles/Menu.module.css';
 import Logo from '../components/Logo';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useGame from '../src/hooks/useGame';
 import { useRouter } from 'next/router';
 
@@ -9,14 +9,22 @@ export default function Home() {
   const [currentDoorsAmount, setCurrentDoorsAmount] = useState(0);
   const { setPrizedDoor, prizedDoor, resetGameConfig } = useGame();
   const router = useRouter();
-  
+
+  useEffect(() => 
+    setPrizedDoor(null)
+  , []);
+
   const handleRouting = (e) =>
   {
     e.preventDefault();
-    resetGameConfig();
     router.replace(`/game/${currentDoorsAmount}/${prizedDoor || 'random'}`);
   }
 
+  const handleChangePrizedDoor = (e) =>
+  {
+    setPrizedDoor(+e.target.value);
+  }
+ 
   return (
     <div style={{display: 'flex', flexDirection: 'column'}}>
       <nav style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', padding: '0px 30px'}}>
@@ -31,7 +39,7 @@ export default function Home() {
           </div>
           <div className={style.inputGroup}>
             <label>Porta premiada:</label>
-            <input type="number" placeholder='a máquina decide' min={1} max={currentDoorsAmount} onChange={(e) => setPrizedDoor(+e.target.value)}/>
+            <input type="number" placeholder='a máquina decide' value={prizedDoor} min={1} max={currentDoorsAmount} onChange={(e) => handleChangePrizedDoor(e)}/>
           </div>
           <input type="submit" value={'Jogar'} className={style.GameButton}/>
         </form>

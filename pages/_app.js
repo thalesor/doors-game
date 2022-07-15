@@ -5,13 +5,13 @@ import { MessageProvider } from '../src/contexts/MessageContext';
 
 function MyApp({ Component, pageProps }) {
   return <>
-  <MessageProvider>
   <GameProvider>
+  <MessageProvider>
   <ChancesProvider>
     <Component {...pageProps} />
   </ChancesProvider>
-  </GameProvider>
   </MessageProvider>
+  </GameProvider>
   </>
 }
 

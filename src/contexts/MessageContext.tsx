@@ -2,6 +2,7 @@ import { createContext } from "react";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { useRouter } from "next/router";
+import useGame from "../hooks/useGame";
 
 export const MessageContext = createContext(null);
 
@@ -10,7 +11,7 @@ type messageType = 'success' | 'failure';
 export function MessageProvider({ children }) {
 
   const router = useRouter();
-  
+  const { resetGameConfig } = useGame(); 
   const MySwal = withReactContent(Swal);
 
   function displayMessage(mode: messageType)
@@ -30,6 +31,7 @@ export function MessageProvider({ children }) {
         }
         else if(result.isDismissed)
         {
+          resetGameConfig();
           router.replace('/');
         }
       });
