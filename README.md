@@ -23,4 +23,4 @@ Após [http://localhost:3000](http://localhost:3000) no seu browser favorito.
 
 ## Demonstração das telas do jogo (a imagem é um gif, então há perda de qualidade):
 
-<img align="right" alt="GIF" src="https://github.com/thalesor/doors-game/blob/main/application.gif?raw=true" width="100%" height="600" />
+![demonstration](https://github.com/thalesor/doors-game/blob/main/doorsgame_video.webm)
