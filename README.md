@@ -1,3 +1,5 @@
+# Bem-vindo ao DoorsGame
+
 Esse é um projeto criado com [Next.js](https://nextjs.org/).
 A idéia é encontrar o presente escondido em uma das portas antes que as chances se esgotem e inicialmente há
 um menu para configurar quantas portas serão utilizadas e se deseja escolher uma porta premiada ou a máquina deve escolher uma porta para ser premiada. 
