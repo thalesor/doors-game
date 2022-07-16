@@ -23,6 +23,6 @@ yarn dev
 
 Após [http://localhost:3000](http://localhost:3000) no seu browser favorito.
 
-## Demonstração das telas do jogo (a imagem é um gif, então há perda de qualidade):
+## Demonstração das telas do jogo
 
-![demonstration](https://github.com/thalesor/doors-game/blob/main/doorsgame_video.webm)
+[![Vídeo de demonstração do DoorsGame](https://img.youtube.com/vi/4mzJu3ZwfI8/0.jpg)](https://www.youtube.com/watch?v=4mzJu3ZwfI8)
