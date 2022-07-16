@@ -6,7 +6,7 @@ um menu para configurar quantas portas serão utilizadas e se deseja escolher um
 O jogo acaba quando e encontra o presente ou as chances se esgotam.
 Para vencer é preciso não somente encontrar o presente mas também clicar nele.
 Quando o jogo acaba é possível reiniciar o mesmo jogo ou voltar ao menu para mudar as configurações, eu espero
-que se divirtam :D foi feito com .
+que se divirtam :D foi feito com ❤️
 
 ## Para quem quiser só experimentar o jogo e não quiser saber como foi feito:
 Basta acessar o seguinte link (https://doorsgame.vercel.app/)
