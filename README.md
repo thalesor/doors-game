@@ -24,5 +24,4 @@ yarn dev
 Após [http://localhost:3000](http://localhost:3000) no seu browser favorito.
 
 ## Demonstração das telas do jogo
-
-[![Vídeo de demonstração do DoorsGame](https://img.youtube.com/vi/4mzJu3ZwfI8/0.jpg)](https://www.youtube.com/watch?v=4mzJu3ZwfI8)
+[![Vídeo de demonstração do DoorsGame](https://yt-embed.herokuapp.com/embed?v=4mzJu3ZwfI8)](https://www.youtube.com/watch?v=4mzJu3ZwfI8 "Vídeo de demonstração do DoorsGame")
